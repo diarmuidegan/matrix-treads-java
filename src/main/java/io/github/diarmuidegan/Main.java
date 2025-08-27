@@ -28,6 +28,14 @@ public class Main {
         Task2ElementStatsCallable task2ElementStatsCallable = new Task2ElementStatsCallable(arr2, number);
         Future<Double> task2future = executorService.submit(task2ElementStatsCallable);
         System.out.println("Percentage of elements <= "+number+": "+task2future.get() +"%");
+        //
+        //Task3
+        //
+        Task3MatrixMultiplyCallable task3MatrixMultiplyCallable = new Task3MatrixMultiplyCallable(arr1, arr2);
+        Future<int[][]> task3future = executorService.submit(task3MatrixMultiplyCallable);
+        int[][] product = task3future.get();
+        System.out.println("Task 3 Resulting Matrix:");
+        printMatrix(product);
     }
 
     // Method to generate a rows x cols matrix with random values between minValue and maxValue
