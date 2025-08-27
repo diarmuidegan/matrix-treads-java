@@ -15,8 +15,13 @@ public class Main {
 
         System.out.println("Arr2:");
         printMatrix(arr2);
-
-    }//end main
+        ExecutorService executorService = Executors.newScheduledThreadPool(5);
+        //
+        // Task 1
+        //
+        Task1FrequencyDistributionRunnable task1Runnable = new Task1FrequencyDistributionRunnable(arr1);
+        executorService.submit(task1Runnable);
+    }
 
     // Method to generate a rows x cols matrix with random values between minValue and maxValue
     public static int[][] generateRandomMatrix(int rows, int cols, int minValue, int maxValue) {
