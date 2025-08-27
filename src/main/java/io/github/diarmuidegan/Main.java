@@ -21,6 +21,13 @@ public class Main {
         //
         Task1FrequencyDistributionRunnable task1Runnable = new Task1FrequencyDistributionRunnable(arr1);
         executorService.submit(task1Runnable);
+        //
+        // Task 2
+        //
+        int number = 5;
+        Task2ElementStatsCallable task2ElementStatsCallable = new Task2ElementStatsCallable(arr2, number);
+        Future<Double> task2future = executorService.submit(task2ElementStatsCallable);
+        System.out.println("Percentage of elements <= "+number+": "+task2future.get() +"%");
     }
 
     // Method to generate a rows x cols matrix with random values between minValue and maxValue
