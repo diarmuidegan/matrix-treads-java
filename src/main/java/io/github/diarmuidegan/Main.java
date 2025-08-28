@@ -6,9 +6,10 @@ public class Main {
     public static void main(String[] args) throws ExecutionException, InterruptedException {
 
         // Initialize two 3x3 matrices with random values between 1 and 50
-        int[][] arr1 = generateRandomMatrix(3, 3, 1, 50);
-        int[][] arr2 = generateRandomMatrix(3, 3, 1, 50);
-
+        //int[][] arr1 = generateRandomMatrix(3, 3, 1, 50);
+        //int[][] arr2 = generateRandomMatrix(3, 3, 1, 50);
+        int[][] arr1 =getMatrixOne();
+        int[][] arr2 =getMatrixTwo();
         // Print the matrices
         System.out.println("Arr1:");
         printMatrix(arr1);
@@ -19,19 +20,19 @@ public class Main {
         //
         // Task 1
         //
-        Task1FrequencyDistributionRunnable task1Runnable = new Task1FrequencyDistributionRunnable(arr1);
+        var task1Runnable = new Task1FrequencyDistributionRunnable(arr1);
         executorService.submit(task1Runnable);
         //
         // Task 2
         //
         int number = 5;
-        Task2ElementStatsCallable task2ElementStatsCallable = new Task2ElementStatsCallable(arr2, number);
+        var task2ElementStatsCallable = new Task2ElementStatsCallable(arr2, number);
         Future<Double> task2future = executorService.submit(task2ElementStatsCallable);
-        System.out.println("Percentage of elements <= "+number+": "+task2future.get() +"%");
+        System.out.println("Percentage of elements <= " + number + ": " + task2future.get() + "%");
         //
         //Task3
         //
-        Task3MatrixMultiplyCallable task3MatrixMultiplyCallable = new Task3MatrixMultiplyCallable(arr1, arr2);
+        var task3MatrixMultiplyCallable = new Task3MatrixMultiplyCallable(arr1, arr2);
         Future<int[][]> task3future = executorService.submit(task3MatrixMultiplyCallable);
         int[][] product = task3future.get();
         System.out.println("Task 3 Resulting Matrix:");
@@ -62,6 +63,23 @@ public class Main {
             System.out.println();
         }//end for
     }//end printMatrix
+    // Returns arr1 with fixed values
+    public static int[][] getMatrixOne() {
+        return new int[][] {
+                {8, 7, 5},
+                {4, 7, 1},
+                {6, 3, 7}
+        };
+    }
+
+    // Returns arr2 with fixed values
+    public static int[][] getMatrixTwo() {
+        return new int[][] {
+                {6, 6, 1},
+                {5, 8, 1},
+                {6, 7, 5}
+        };
+    }
 
 
 }

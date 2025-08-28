@@ -80,7 +80,7 @@ arr1:
 arr2:
 6 6 1
 5 8 1
-5 7 5
+6 7 5
 
 ```
 
@@ -104,6 +104,133 @@ The resulting matrix (arr1 × arr2) would be:
 
 If the arrays are incompatible, the Callable should throw an `IllegalArgumentException`.
 
+## Matrix Multiplication Rules
+
+Matrix multiplication is possible if the number of columns in `arr1` equals the number of rows in `arr2`.  
+To multiply two matrices using the dot product method, the multiplication involves taking the dot product of the rows of the first matrix (`arr1`) with the columns of the second matrix (`arr2`).
+
+The resultant matrix, call it `result`, will also be a 3×3 matrix because both `arr1` and `arr2` are 3×3 matrices.
+
+---
+
+## Step by Step Guide to Multiplying the Matrices (Arrays)
+
+### 1. Calculate `result[0][0]`
+- Take the first row of `arr1`: [8, 7, 5]
+- Take the first column of `arr2`: [6, 5, 6]
+- Perform the dot product:
+
+```
+result\[0]\[0] = (8×6) + (7×5) + (5×6)
+result\[0]\[0] = 48 + 35 + 30 = 113
+```
+
+### 2. Calculate `result[0][1]`
+- Take the first row of `arr1`: [8, 7, 5]
+- Take the second column of `arr2`: [6, 8, 7]
+- Perform the dot product:
+```
+
+result\[0]\[1] = (8×6) + (7×8) + (5×7)
+result\[0]\[1] = 48 + 56 + 35 = 139
+
+```
+
+### 3. Calculate `result[0][2]`
+- Take the first row of `arr1`: [8, 7, 5]
+- Take the third column of `arr2`: [1, 1, 5]
+- Perform the dot product:
+```
+
+result\[0]\[2] = (8×1) + (7×1) + (5×5)
+result\[0]\[2] = 8 + 7 + 25 = 40
+
+```
+
+### 4. Calculate `result[1][0]`
+- Take the second row of `arr1`: [4, 7, 1]
+- Take the first column of `arr2`: [6, 5, 6]
+- Perform the dot product:
+```
+
+result\[1]\[0] = (4×6) + (7×5) + (1×6)
+result\[1]\[0] = 24 + 35 + 6 = 65
+
+```
+
+### 5. Calculate `result[1][1]`
+- Take the second row of `arr1`: [4, 7, 1]
+- Take the second column of `arr2`: [6, 8, 7]
+- Perform the dot product:
+```
+
+result\[1]\[1] = (4×6) + (7×8) + (1×7)
+result\[1]\[1] = 24 + 56 + 7 = 87
+
+```
+
+### 6. Calculate `result[1][2]`
+- Take the second row of `arr1`: [4, 7, 1]
+- Take the third column of `arr2`: [1, 1, 5]
+- Perform the dot product:
+```
+
+result\[1]\[2] = (4×1) + (7×1) + (1×5)
+result\[1]\[2] = 4 + 7 + 5 = 16
+
+```
+
+### 7. Calculate `result[2][0]`
+- Take the third row of `arr1`: [6, 3, 7]
+- Take the first column of `arr2`: [6, 5, 6]
+- Perform the dot product:
+```
+
+result\[2]\[0] = (6×6) + (3×5) + (7×6)
+result\[2]\[0] = 36 + 15 + 42 = 93
+
+```
+
+### 8. Calculate `result[2][1]`
+- Take the third row of `arr1`: [6, 3, 7]
+- Take the second column of `arr2`: [6, 8, 7]
+- Perform the dot product:
+```
+
+result\[2]\[1] = (6×6) + (3×8) + (7×7)
+result\[2]\[1] = 36 + 24 + 49 = 109
+
+```
+
+### 9. Calculate `result[2][2]`
+- Take the third row of `arr1`: [6, 3, 7]
+- Take the third column of `arr2`: [1, 1, 5]
+- Perform the dot product:
+```
+
+result\[2]\[2] = (6×1) + (3×1) + (7×5)
+result\[2]\[2] = 6 + 3 + 35 = 44
+
+```
+
+---
+
+## Final Resultant Matrix
+
+```
+
+113  139   40
+65   87   16
+93  109   44
+
+```
+
+---
+
+The **dot product** is a fundamental operation in linear algebra that serves several purposes in mathematics, physics, engineering, computer science, and other fields.
+
+If the arrays (matrices) are of incompatible sizes for multiplication, the `Callable` should throw an `IllegalArgumentException`.
+
 ---
 
 ## Additional Notes
@@ -120,8 +247,5 @@ If the arrays are incompatible, the Callable should throw an `IllegalArgumentExc
 - **Task 1:** 25 Marks
 - **Task 2:** 30 Marks
 - **Task 3:** 45 Marks
-```
 
 ---
-
-Do you want me to also reformat the **step-by-step worked-out multiplication example** (with the dot products written out), or do you just need the exam question cleaned up for Markdown?
