@@ -21,7 +21,7 @@ public class Main {
         //
         // Task 1
         //
-        var task1Runnable = new Task1FrequencyDistributionAltRunnable(arr1);
+        var task1Runnable = new Task1FrequencyDistributionRunnable(arr1);
         executorService.submit(task1Runnable);
         //
         // Task 2

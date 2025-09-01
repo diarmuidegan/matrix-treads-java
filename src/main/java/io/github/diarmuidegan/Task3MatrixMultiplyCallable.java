@@ -25,17 +25,6 @@ public class Task3MatrixMultiplyCallable implements Callable <int[][]> {
      */
     @Override
     public int[][] call() throws Exception {
-
-        int[][] productMatrixArray = new int[matrixArrayLhs.length][matrixArrayRhs[0].length];
-
-        for (int leftRowIndex = 0; leftRowIndex < matrixArrayLhs.length; leftRowIndex++) {
-            for (int rightColIndex = 0; rightColIndex < matrixArrayRhs[0].length; rightColIndex++) {
-                for (int sharedIndex = 0; sharedIndex < matrixArrayLhs[0].length; sharedIndex++) {
-                    productMatrixArray[leftRowIndex][rightColIndex] +=
-                            matrixArrayLhs[leftRowIndex][sharedIndex] * matrixArrayRhs[sharedIndex][rightColIndex];
-                }
-            }
-        }
-        return productMatrixArray;
+        return MatrixUtility.multiplyMatrices(matrixArrayLhs, matrixArrayRhs);
     }
 }

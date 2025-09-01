@@ -24,20 +24,6 @@ public class Task2ElementStatsCallable implements Callable<Double>
      */
     @Override
     public Double call() throws Exception {
-        int total = matrixArray.length * matrixArray[0].length;
-        int count = countLessOrEqual(matrixArray, number);
-        return count/(double)total;
-    }
-    /**
-     * Counts the number of elements in the matrix that are less than or equal to the specified test value.
-     * @param matrixArray the matrix to search
-     * @param testValue the value to compare against
-     * @return the count of elements less than or equal to the test value
-     */
-    public static int countLessOrEqual(int[][] matrixArray, int testValue) {
-        return (int) Arrays.stream(matrixArray)            // Stream<int[]>
-                .flatMapToInt(Arrays::stream)              // Stream all ints
-                .filter(number -> number <= testValue) // Keep <= testValue
-                .count();                                  // Count them
+        return MatrixUtility.elementsPcStat(matrixArray, number);
     }
 }
